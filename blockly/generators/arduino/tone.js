@@ -23,26 +23,31 @@ goog.require('Blockly.Arduino');
  */
 
 Blockly.Arduino['io_tone'] = function(block) {
-  var pin = block.getFieldValue('TONEPIN');
-  var freq = Blockly.Arduino.valueToCode(block, 'FREQUENCY', Blockly.Arduino.ORDER_ATOMIC);
-  Blockly.Arduino.reservePin(
-      block, pin, Blockly.Arduino.PinTypes.OUTPUT, 'Tone Pin');
+    var pin = block.getFieldValue('TONEPIN');
+    var freq = Blockly.Arduino.valueToCode(block, 'FREQUENCY', Blockly.Arduino.ORDER_ATOMIC);
+    Blockly.Arduino.reservePin(
+        block, pin, Blockly.Arduino.PinTypes.OUTPUT, 'Tone Pin');
 
-  var pinSetupCode = 'pinMode(' + pin + ', OUTPUT);\n';
-  Blockly.Arduino.addSetup('io_' + pin, pinSetupCode, false);
+    var code = 'tone(' + pin + ',' + freq + ');\n';
+    return code;
+};
 
-  var code = 'tone(' + pin + ',' + freq + ');\n';
-  return code;
+Blockly.Arduino['io_tone_duration'] = function(block) {
+    var pin = block.getFieldValue('TONEPIN');
+    var freq = Blockly.Arduino.valueToCode(block, 'FREQUENCY', Blockly.Arduino.ORDER_ATOMIC);
+    var duration = Blockly.Arduino.valueToCode(block, 'DURATION', Blockly.Arduino.ORDER_ATOMIC);
+    Blockly.Arduino.reservePin(
+        block, pin, Blockly.Arduino.PinTypes.OUTPUT, 'Tone Pin');
+
+    var code = 'tone(' + pin + ',' + freq + ',' + duration + ');\n';
+    return code;
 };
 
 Blockly.Arduino['io_notone'] = function(block) {
-  var pin = block.getFieldValue("TONEPIN");
-  Blockly.Arduino.reservePin(
-      block, pin, Blockly.Arduino.PinTypes.OUTPUT, 'Tone Pin');
-  
-  var pinSetupCode = 'pinMode(' + pin + ', OUTPUT);\n';
-  Blockly.Arduino.addSetup('io_' + pin, pinSetupCode, false);
+    var pin = block.getFieldValue("TONEPIN");
+    Blockly.Arduino.reservePin(
+        block, pin, Blockly.Arduino.PinTypes.OUTPUT, 'Tone Pin');
 
-  var code = 'noTone(' + pin + ');\n';
-  return code;
+    var code = 'noTone(' + pin + ');\n';
+    return code;
 };
