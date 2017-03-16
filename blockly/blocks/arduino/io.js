@@ -21,194 +21,194 @@ goog.require('Blockly.Types');
 Blockly.Blocks.io.HUE = 250;
 
 Blockly.Blocks['io_pinmode'] = {
-  init: function() {
-    this.jsonInit(
-        {
-          "type": "io_pinmode",
-          "message0": Blockly.Msg.ARD_PINMODE,
-          "args0": [
+    init: function() {
+        this.jsonInit(
             {
-              "type": "field_dropdown",
-              "name": "PIN",
-              "options": Blockly.Arduino.Boards.selected.digitalPins
-            },
-            {
-              "type": "field_dropdown",
-              "name": "MODE",
-              "options": [[Blockly.Msg.ARD_OUTPUT, 'OUTPUT'], [Blockly.Msg.ARD_INPUT, 'INPUT'], [Blockly.Msg.ARD_INPUT_PULLUP, 'INPUT_PULLUP']]
+                "type": "io_pinmode",
+                "message0": Blockly.Msg.ARD_PINMODE,
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "PIN",
+                        "options": Blockly.Arduino.Boards.selected.digitalPins
+                    },
+                    {
+                        "type": "field_dropdown",
+                        "name": "MODE",
+                        "options": [[Blockly.Msg.ARD_OUTPUT, 'OUTPUT'], [Blockly.Msg.ARD_INPUT, 'INPUT'], [Blockly.Msg.ARD_INPUT_PULLUP, 'INPUT_PULLUP']]
+                    }
+                ],
+                "previousStatement": null,
+                "nextStatement": null,
+                "colour": Blockly.Blocks.io.HUE,
+                "tooltip": Blockly.Msg.ARD_PINMODE_TIP,
+                "helpUrl": 'http://arduino.cc/en/Reference/PinMode'
             }
-          ],
-          "previousStatement": null,
-          "nextStatement": null,
-          "colour": Blockly.Blocks.io.HUE,
-          "tooltip": Blockly.Msg.ARD_PINMODE_TIP,
-          "helpUrl": 'http://arduino.cc/en/Reference/PinMode'
-        }
-    );
-  },
-  updateFields : function() {
-    Blockly.Arduino.Boards.refreshBlockFieldDropdown(
-        this, 'PIN', 'digitalPins');
-  }
+        );
+    },
+    updateFields : function() {
+        Blockly.Arduino.Boards.refreshBlockFieldDropdown(
+            this, 'PIN', 'digitalPins');
+    }
 };
 
 Blockly.Blocks['io_digitalwrite'] = {
-  init: function() {
-    this.jsonInit(
-        {
-          "type": "io_digitalwrite",
-          "message0": Blockly.Msg.ARD_DIGITALWRITE,
-          "args0": [
+    init: function() {
+        this.jsonInit(
             {
-              "type": "field_dropdown",
-              "name": "PIN",
-              "options": Blockly.Arduino.Boards.selected.digitalPins
-            },
-            {
-              "type": "field_dropdown",
-              "name": "STATE",
-              "options": [[Blockly.Msg.ARD_HIGH, 'HIGH'], [Blockly.Msg.ARD_LOW, 'LOW']]
+                "type": "io_digitalwrite",
+                "message0": Blockly.Msg.ARD_DIGITALWRITE,
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "PIN",
+                        "options": Blockly.Arduino.Boards.selected.digitalPins
+                    },
+                    {
+                        "type": "field_dropdown",
+                        "name": "STATE",
+                        "options": [[Blockly.Msg.ARD_HIGH, 'HIGH'], [Blockly.Msg.ARD_LOW, 'LOW']]
+                    }
+                ],
+                "previousStatement": null,
+                "nextStatement": null,
+                "colour": Blockly.Blocks.io.HUE,
+                "tooltip": Blockly.Msg.ARD_DIGITALWRITE_TIP,
+                "helpUrl": 'http://arduino.cc/en/Reference/DigitalWrite'
             }
-          ],
-          "previousStatement": null,
-          "nextStatement": null,
-          "colour": Blockly.Blocks.io.HUE,
-          "tooltip": Blockly.Msg.ARD_DIGITALWRITE_TIP,
-          "helpUrl": 'http://arduino.cc/en/Reference/DigitalWrite'
-        }
-    );
-  },
-  updateFields : function() {
-    Blockly.Arduino.Boards.refreshBlockFieldDropdown(
-        this, 'PIN', 'digitalPins');
-  }
+        );
+    },
+    updateFields : function() {
+        Blockly.Arduino.Boards.refreshBlockFieldDropdown(
+            this, 'PIN', 'digitalPins');
+    }
 };
 
 
 Blockly.Blocks['io_digitalread'] = {
-  init: function() {
-    this.jsonInit(
-        {
-          "type": "io_digitalread",
-          "message0": Blockly.Msg.ARD_DIGITALREAD,
-          "args0": [
+    init: function() {
+        this.jsonInit(
             {
-              "type": "field_dropdown",
-              "name": "PIN",
-              "options": Blockly.Arduino.Boards.selected.digitalPins
+                "type": "io_digitalread",
+                "message0": Blockly.Msg.ARD_DIGITALREAD,
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "PIN",
+                        "options": Blockly.Arduino.Boards.selected.digitalPins
+                    }
+                ],
+                "output": Blockly.Types.BOOLEAN.output,
+                "colour": Blockly.Blocks.io.HUE,
+                "tooltip": Blockly.Msg.ARD_DIGITALREAD_TIP,
+                "helpUrl": 'http://arduino.cc/en/Reference/DigitalRead'
             }
-          ],
-          "output": Blockly.Types.BOOLEAN.output,
-          "colour": Blockly.Blocks.io.HUE,
-          "tooltip": Blockly.Msg.ARD_DIGITALREAD_TIP,
-          "helpUrl": 'http://arduino.cc/en/Reference/DigitalRead'
-        }
-    );
-  },
-  getBlockType : function() {
-    return Blockly.Types.BOOLEAN;
-  },
-  updateFields : function() {
-    Blockly.Arduino.Boards.refreshBlockFieldDropdown(
-        this, 'PIN', 'digitalPins');
-  }
+        );
+    },
+    getBlockType : function() {
+        return Blockly.Types.BOOLEAN;
+    },
+    updateFields : function() {
+        Blockly.Arduino.Boards.refreshBlockFieldDropdown(
+            this, 'PIN', 'digitalPins');
+    }
 };
 
 Blockly.Blocks['io_analogwrite'] = {
-  init: function() {
-    this.jsonInit(
-        {
-          "type": "io_analogwrite",
-          "message0": Blockly.Msg.ARD_ANALOGWRITE,
-          "args0": [
+    init: function() {
+        this.jsonInit(
             {
-              "type": "field_dropdown",
-              "name": "PIN",
-              "options": Blockly.Arduino.Boards.selected.pwmPins
-            },
-            {
-              "type": "input_value",
-              "name": "NUM",
-              "check": Blockly.Types.NUMBER.output
+                "type": "io_analogwrite",
+                "message0": Blockly.Msg.ARD_ANALOGWRITE,
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "PIN",
+                        "options": Blockly.Arduino.Boards.selected.pwmPins
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "ANALOG_WRITE_VALUE",
+                        "check": Blockly.Types.NUMBER.output
+                    }
+                ],
+                "previousStatement": null,
+                "nextStatement": null,
+                "inputsInline": true,
+                "colour": Blockly.Blocks.io.HUE,
+                "tooltip": Blockly.Msg.ARD_ANALOGWRITE_TIP,
+                "helpUrl": 'http://arduino.cc/en/Reference/AnalogWrite'
             }
-          ],
-          "previousStatement": null,
-          "nextStatement": null,
-          "inputsInline": true,
-          "colour": Blockly.Blocks.io.HUE,
-          "tooltip": Blockly.Msg.ARD_ANALOGWRITE_TIP,
-          "helpUrl": 'http://arduino.cc/en/Reference/AnalogWrite'
-        }
-    );
-  },
-  updateFields : function() {
-    Blockly.Arduino.Boards.refreshBlockFieldDropdown(this, 'PIN', 'pwmPins');
-  },
-  getBlockType : function() {
-    return Blockly.Types.NUMBER;
-  }
+        );
+    },
+    updateFields : function() {
+        Blockly.Arduino.Boards.refreshBlockFieldDropdown(this, 'PIN', 'pwmPins');
+    },
+    getBlockType : function() {
+        return Blockly.Types.NUMBER;
+    }
 };
 
 
 Blockly.Blocks['io_analogread'] = {
-  init: function() {
-    this.jsonInit(
-        {
-          "type": "io_analogread",
-          "message0": Blockly.Msg.ARD_ANALOGREAD,
-          "args0": [
+    init: function() {
+        this.jsonInit(
             {
-              "type": "field_dropdown",
-              "name": "PIN",
-              "options": Blockly.Arduino.Boards.selected.analogPins
+                "type": "io_analogread",
+                "message0": Blockly.Msg.ARD_ANALOGREAD,
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "PIN",
+                        "options": Blockly.Arduino.Boards.selected.analogPins
+                    }
+                ],
+                "output": Blockly.Types.NUMBER.output,
+                "colour": Blockly.Blocks.io.HUE,
+                "tooltip": Blockly.Msg.ARD_ANALOGREAD_TIP,
+                "helpUrl": 'http://arduino.cc/en/Reference/AnalogRead'
             }
-          ],
-          "output": Blockly.Types.NUMBER.output,
-          "colour": Blockly.Blocks.io.HUE,
-          "tooltip": Blockly.Msg.ARD_ANALOGREAD_TIP,
-          "helpUrl": 'http://arduino.cc/en/Reference/AnalogRead'
-        }
-    );
-  },
-  getBlockType : function() {
-    return Blockly.Types.NUMBER;
-  },
-  updateFields : function() {
-    Blockly.Arduino.Boards.refreshBlockFieldDropdown(this, 'PIN', 'analogPins');
-  }
+        );
+    },
+    getBlockType : function() {
+        return Blockly.Types.NUMBER;
+    },
+    updateFields : function() {
+        Blockly.Arduino.Boards.refreshBlockFieldDropdown(this, 'PIN', 'analogPins');
+    }
 };
 
 
 Blockly.Blocks['io_highlow'] = {
-  init: function() {
-    this.setHelpUrl('http://arduino.cc/en/Reference/Constants');
-    this.setColour(Blockly.Blocks.io.HUE);
-    this.appendDummyInput()
-        .appendField(
-            new Blockly.FieldDropdown([[Blockly.Msg.ARD_HIGH, 'HIGH'], [Blockly.Msg.ARD_LOW, 'LOW']]),
-            'STATE');
-    this.setOutput(true, Blockly.Types.BOOLEAN.output);
-    this.setTooltip(Blockly.Msg.ARD_HIGHLOW_TIP);
-  },
-  getBlockType: function() {
-    return Blockly.Types.BOOLEAN;
-  }
+    init: function() {
+        this.setHelpUrl('http://arduino.cc/en/Reference/Constants');
+        this.setColour(Blockly.Blocks.io.HUE);
+        this.appendDummyInput()
+            .appendField(
+                new Blockly.FieldDropdown([[Blockly.Msg.ARD_HIGH, 'HIGH'], [Blockly.Msg.ARD_LOW, 'LOW']]),
+                'STATE');
+        this.setOutput(true, Blockly.Types.BOOLEAN.output);
+        this.setTooltip(Blockly.Msg.ARD_HIGHLOW_TIP);
+    },
+    getBlockType: function() {
+        return Blockly.Types.BOOLEAN;
+    }
 };
 
 Blockly.Blocks['io_inputoutput'] = {
-  init: function() {
-    this.setHelpUrl('http://arduino.cc/en/Reference/Constants');
-    this.setColour(Blockly.Blocks.io.HUE);
-    this.appendDummyInput()
-        .appendField(
-            new Blockly.FieldDropdown([[Blockly.Msg.ARD_OUTPUT, 'OUTPUT'], [Blockly.Msg.ARD_INPUT, 'INPUT'], [Blockly.Msg.ARD_INPUT_PULLUP, 'INPUT_PULLUP']]),
-            'MODE');
-    this.setOutput(true, Blockly.Types.NUMBER.output);
-    this.setTooltip(Blockly.Msg.ARD_INPUT_OUTPUT_TIP);
-  },
-  getBlockType: function() {
-    return Blockly.Types.NUMBER;
-  }
+    init: function() {
+        this.setHelpUrl('http://arduino.cc/en/Reference/Constants');
+        this.setColour(Blockly.Blocks.io.HUE);
+        this.appendDummyInput()
+            .appendField(
+                new Blockly.FieldDropdown([[Blockly.Msg.ARD_OUTPUT, 'OUTPUT'], [Blockly.Msg.ARD_INPUT, 'INPUT'], [Blockly.Msg.ARD_INPUT_PULLUP, 'INPUT_PULLUP']]),
+                'MODE');
+        this.setOutput(true, Blockly.Types.NUMBER.output);
+        this.setTooltip(Blockly.Msg.ARD_INPUT_OUTPUT_TIP);
+    },
+    getBlockType: function() {
+        return Blockly.Types.NUMBER;
+    }
 };
 
 // Blockly.Blocks['io_pulsein'] = {

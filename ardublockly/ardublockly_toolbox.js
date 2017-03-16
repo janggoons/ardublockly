@@ -132,9 +132,9 @@ Ardublockly.TOOLBOX_XML =
     // '      </value>' +
     // '    </block>' +
     '    <block type="io_analogwrite">' +
-    '      <value name="DELAY_TIME_MILI">' +
+    '      <value name="ANALOG_WRITE_VALUE">' +
     '        <block type="math_number">' +
-    '          <field name="NUM">1000</field>' +
+    '          <field name="NUM">255</field>' +
     '        </block>' +
     '      </value>' +
     '    </block>' +
@@ -173,19 +173,51 @@ Ardublockly.TOOLBOX_XML =
     '    </block>' +
     '    <block type="time_millis"></block>' +
     '    <block type="time_micros"></block>' +
-    '    <block type="infinite_loop"></block>' +
+    // '    <block type="infinite_loop"></block>' +
     '  </category>' +
     '  <sep></sep>' +
     '  <category id="catAudio" name="Audio">' +
     '    <block type="io_tone">' +
     '      <field name="TONEPIN">0</field>' +
     '      <value name="FREQUENCY">' +
-    '        <shadow type="math_number">' +
+    '        <block type="math_number">' +
     '          <field name="NUM">220</field>' +
-    '        </shadow>' +
+    '        </block>' +
+    '      </value>' +
+    '    </block>' +
+    '    <block type="io_tone_duration">' +
+    '      <field name="TONEPIN">0</field>' +
+    '      <value name="FREQUENCY">' +
+    '        <block type="math_number">' +
+    '          <field name="NUM">220</field>' +
+    '        </block>' +
+    '      </value>' +
+    '      <value name="DURATION">' +
+    '        <block type="math_number">' +
+    '          <field name="NUM">220</field>' +
+    '        </block>' +
     '      </value>' +
     '    </block>' +
     '    <block type="io_notone"></block>' +
+    '  </category>' +
+    '  <sep></sep>' +
+    '  <category id="catComms" name="Comms">' +
+    '    <block type="serial_setup"></block>' +
+    '    <block type="serial_print">' +
+    '      <value name="CONTENT">' +
+    '        <block type="text"></block>' +
+    '      </value>' +
+    '    </block>' +
+    '    <block type="serial_println">' +
+    '      <value name="CONTENT">' +
+    '        <block type="text"></block>' +
+    '      </value>' +
+    '    </block>' +
+    '    <block type="serial_write">' +
+    '      <value name="CONTENT">' +
+    '        <block type="text"></block>' +
+    '      </value>' +
+    '    </block>' +
     '  </category>' +
     '  <sep></sep>' +
     '  <category id="catMotors" name="Motors">' +
@@ -218,18 +250,5 @@ Ardublockly.TOOLBOX_XML =
     '        </block>' +
     '      </value>' +
     '    </block>' +
-    '  </category>' +
-    '  <sep></sep>' +
-    '  <category id="catComms" name="Comms">' +
-    '    <block type="serial_setup"></block>' +
-    '    <block type="serial_print"></block>' +
-    '    <block type="text_prompt_ext">' +
-    '      <value name="TEXT">' +
-    '        <block type="text"></block>' +
-    '      </value>' +
-    '    </block>' +
-    '    <block type="spi_setup"></block>' +
-    '    <block type="spi_transfer"></block>' +
-    '    <block type="spi_transfer_return"></block>' +
     '  </category>' +
     '</xml>';
