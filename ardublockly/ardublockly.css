@@ -126,7 +126,7 @@ ul.side-nav li.side-menu-end {
 #blocks_panel {
   padding: 0px;
   position: relative !important;
-  min-height: 480px;
+  min-height: 600px;
 }
 .blocks_panel_large {
   height: -moz-calc(100vh - 190px);     /* Firefox  */
