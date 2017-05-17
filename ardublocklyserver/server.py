@@ -20,6 +20,7 @@ from ardublocklyserver.requesthandler import BlocklyRequestHandler
 ADDRESS = '0.0.0.0'
 PORT = 8000
 
+server = None
 
 def start_server(document_root):
     """ Start the server with the document root indicated by argument """
